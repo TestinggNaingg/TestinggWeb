@@ -69,23 +69,31 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
   
-  /* Navbar */
-.navbar {
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #c33764, #1d2671);
+    color: #fff;
+    padding-top: 80px;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1);
     padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(10px);
-    z-index: 100;
+    z-index: 1000;
   }
   
   .nav-logo {
     font-size: 1.5rem;
-    color: #ffd700;
     font-weight: bold;
+    color: #ffd700;
   }
   
   .nav-links {
@@ -98,14 +106,43 @@ body {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
   }
   
-  .nav-links a:hover {
+  .nav-links a:hover,
+  .nav-links .active {
     color: #ffd700;
   }
   
-  /* Upload Button */
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .highlight {
+    color: #ffd700;
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  input[type="file"] {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #333;
+  }
+  
   #submitBtn {
     margin-top: 1rem;
     padding: 0.6rem 1.2rem;
@@ -114,12 +151,28 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    color: #333;
     font-weight: bold;
-    transition: background 0.3s ease;
+    color: #333;
   }
   
-  #submitBtn:hover {
-    background-color: #ffcc00;
+  #imagePreview {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 12px;
+    display: none;
+    margin-top: 1.2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .gallery-img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
   
