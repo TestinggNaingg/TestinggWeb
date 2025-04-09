@@ -8,10 +8,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<p style="margin-top: 1.5rem;">
-    <a href="gallery.html" class="gallery-link">Go to Gallery →</a>
-  </p>
-  
+
+    <nav class="navbar">
+        <div class="nav-logo">MySite</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </nav>
+
   <div class="container">
     <header>
       <h1>Hello, I'm <span class="highlight">Sai Sattt</span></h1>
@@ -26,6 +31,12 @@
       </div>
     </section>
   </div>
+
+  <div id="imagePreviewContainer">
+    <img id="imagePreview" src="" alt="Image Preview" />
+  </div>
+</section>
+</div>
 
   <script src="script.js"></script>
 </body>

@@ -69,3 +69,57 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
   
+  /* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+  }
+  
+  .nav-logo {
+    font-size: 1.5rem;
+    color: #ffd700;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #ffd700;
+  }
+  
+  /* Upload Button */
+  #submitBtn {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  #submitBtn:hover {
+    background-color: #ffcc00;
+  }
+  
