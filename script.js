@@ -7,7 +7,7 @@ imageUpload.addEventListener('change', function () {
     const reader = new FileReader();
 
     reader.addEventListener('load', function () {
-      imagePreview.setAttribute('src', this.result);
+      imagePreview.src = this.result;
       imagePreview.style.display = 'block';
     });
 
