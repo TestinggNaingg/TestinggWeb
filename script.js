@@ -14,3 +14,14 @@ imageUpload.addEventListener('change', function () {
     reader.readAsDataURL(file);
   }
 });
+
+reader.addEventListener('load', function () {
+    imagePreview.src = this.result;
+    imagePreview.style.display = 'block';
+  
+    // Save to localStorage
+    let gallery = JSON.parse(localStorage.getItem('gallery')) || [];
+    gallery.push(this.result);
+    localStorage.setItem('gallery', JSON.stringify(gallery));
+  });
+  
