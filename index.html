@@ -1,37 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing Index with Frame</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Website</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <h1>Welcome to My Love Website</h1>
+    <p> I'm Sai Sat Naing Win</p>
+  </header>
 
-<div class="frame">
-    <header>
-        <h1>Welcome to the Testing Page</h1>
-    </header>
+  <section class="upload-section">
+    <h2>Upload Your Photo</h2>
+    <input type="file" id="imageUpload" accept="image/*" />
+    <div id="imagePreviewContainer">
+      <img id="imagePreview" src="" alt="Image Preview" />
+    </div>
+  </section>
 
-    <section>
-        <h2>About This Page</h2>
-        <p>This is a simple test page that includes basic HTML elements for testing. You can modify and expand it as needed.</p>
-    </section>
-
-    <section>
-        <h2>Image Example</h2>
-        <img src="https://via.placeholder.com/600x300" alt="Placeholder Image">
-    </section>
-
-    <section>
-        <h2>Links</h2>
-        <p>For more information, visit <a href="https://www.example.com" class="link" target="_blank">Example Website</a>.</p>
-    </section>
-</div>
-
-<footer>
-    <p>&copy; 2025 Testing Page. All rights reserved.</p>
-</footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
