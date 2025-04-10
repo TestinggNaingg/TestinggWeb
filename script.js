@@ -1,6 +1,7 @@
 const imageUpload = document.getElementById('imageUpload');
 const imagePreview = document.getElementById('imagePreview');
 const uploadForm = document.getElementById('uploadForm');
+const submitBtn = document.getElementById('submitBtn');
 
 let selectedImageData = null;
 
@@ -11,7 +12,8 @@ imageUpload.addEventListener('change', function () {
     const reader = new FileReader();
 
     reader.addEventListener('load', function () {
-      imagePreview.src = this.result;
+      selectedImageData = this.result; // Store image in memory
+      imagePreview.src = selectedImageData;
       imagePreview.style.display = 'block';
     });
 
@@ -23,15 +25,15 @@ imageUpload.addEventListener('change', function () {
 uploadForm.addEventListener('submit', function (e) {
   e.preventDefault(); // Prevent page reload
 
-  const file = imageUpload.files[0];
-  if (!file) {
-    alert('Please select an image before submitting.');
-    return;
+  if (selectedImageData) {
+    let gallery = JSON.parse(localStorage.getItem('gallery')) || [];
+    gallery.push(selectedImageData);
+    localStorage.setItem('gallery', JSON.stringify(gallery));
+    alert("Photo uploaded successfully!");
+    window.location.href = "gallery.html"; // Go to gallery
+  } else {
+    alert("Please select a photo before submitting.");
   }
-
-  // Simulate upload or log to console
-  console.log('File ready to upload:', file);
-  alert('Image submitted successfully!');
 });
 
 // On submit: save and redirect
