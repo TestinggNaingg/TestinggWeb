@@ -1,3 +1,213 @@
+/* Basic Reset and Font */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: pink; /* Added this line */
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Top Header */
+  .top-header {
+    background-color: #f2f2f2;
+    padding: 5px 15px;
+    font-size: 0.8em;
+  }
+  
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .top-nav-links a,
+  .top-nav-actions a {
+    margin-right: 15px;
+    color: #666;
+  }
+  
+  .top-nav-links a:last-child,
+  .top-nav-actions a:last-child {
+    margin-right: 0;
+  }
+  
+  /* Main Header */
+  .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo h1 {
+    color: #0064d2; /* eBay blue */
+    margin: 0;
+    font-size: 2em;
+  }
+  
+  .search-bar {
+    display: flex;
+    flex-grow: 1;
+    margin: 0 20px;
+  }
+  
+  .search-bar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    flex-grow: 1;
+  }
+  
+  .search-bar select {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .search-bar button[type="submit"] {
+    background-color: #0064d2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  
+  .advanced-search {
+    margin-left: 10px;
+    color: #0064d2;
+    font-size: 0.9em;
+  }
+  
+  .header-links {
+    display: flex;
+  }
+  
+  .header-links a {
+    margin-left: 15px;
+    color: #333;
+    font-size: 0.9em;
+  }
+  
+  .header-links a:first-child {
+    margin-left: 0;
+  }
+  
+ /* Trending Section */
+.trending-section {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .trending-section h2 {
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /*
+  .trending-section .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  */
+  
+  .trending-section .product-item {
+    /* background-color: #eee; Placeholder removed */
+    height: auto; /* Adjust height to fit image */
+    border-radius: 5px;
+    overflow: hidden; /* To contain the image within the rounded corners */
+  }
+  
+  .trending-section .product-item img {
+    display: block; /* Remove extra space below the image */
+    width: 100%; /* Make the image fill the width of the container */
+    height: auto; /* Maintain the image's aspect ratio */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+  }
+  
+  /* Trending Section Carousel Styles */
+  .trending-carousel-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 810px; /* Adjust based on your item width and margin */
+    margin: 20px auto;
+  }
+  
+  .trending-carousel {
+    display: flex;
+    width: fit-content; /* Adjust width to contain all items */
+    margin-right: -15px; /* Remove the margin from the last item effectively */
+}
+  
+  .trending-carousel .product-item {
+    width: 150px;
+    margin-right: 15px;
+  }
+  
+  .trending-carousel .product-item:last-child {
+    margin-right: 0;
+  }
+  
+  /* Initially hide all items, JavaScript will handle visibility */
+  .trending-carousel .product-item {
+    display: none;
+  }
+  
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10; /* Ensure buttons are above the carousel */
+  }
+  
+  .carousel-button:hover {
+    opacity: 1;
+  }
+  
+  .carousel-button.prev {
+    left: 10px;
+  }
+  
+  .carousel-button.next {
+    right: 10px;
+  }
+
+  /* Footer */
+  footer {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8em;
+    color: #666;
+    position:relative; /* To ensure footer stays at the bottom in simple layouts */
+    bottom:0;
+    width: 100%;
+  }
+
+/* this is normal page */
+
 body {
     font-family: sans-serif;
     background: #f8f8f8;

@@ -1,30 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eBay (Simplified)</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-  </nav>
+  <header class="top-header">
+    <div class="top-nav">
+      <div class="top-nav-links">
+        <a href="#">Hello Tone Tone</a>
+        <a href="#">I  love you </a>
+        <a href="gallery.html">Our Photos</a>
+      </div>
+    </div>
+    <div class="main-header">
+      <div class="logo">
+        <h1>Love With Tone</h1> </div>
+      <div class="header-links">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+    </div>
+  </header>
 
-  <h1>Welcome to My Site</h1>
-  <p>This is the home page. Click Gallery to see photos.</p>
+  <main>
+    <section class="trending-section">
+      <h2>Together with New days</h2>
+      <div class="trending-carousel-container">
+    <div class="product-grid trending-carousel">
+        <div class="product-item">
+            <img src="images/1.jpg" alt="Trainer 1">
+          </div>
+          <div class="product-item">
+            <img src="images/2.jpg" alt="Trainer 2">
+          </div>
+          <div class="product-item">
+            <img src="images/3.jpg" alt="Trainer 3">
+          </div>
+          <div class="product-item">
+            <img src="images/4.jpg" alt="Trainer 4">
+          </div>
+          <div class="product-item">
+            <img src="images/5.jpg" alt="Trainer 5">
+          </div>
+          <div class="product-item">
+            <img src="images/6.jpg" alt="Trainer 6">
+          </div>
+          <div class="product-item">
+            <img src="images/birthday.jpg" alt="Trainer 7">
+          </div>
+          <div class="product-item">
+            <img src="images/coffeeshop.jpg" alt="Trainer 8">
+          </div>
+          <div class="product-item">
+            <img src="images/hotpot.jpg" alt="Trainer 9">
+          </div>
+          <div class="product-item">
+            <img src="images/pagoda.jpg" alt="Trainer 10">
+          </div>
+          <div class="product-item">
+            <img src="images/shesayloveme.jpg" alt="Trainer 11">
+          </div>
+          <div class="product-item">
+            <img src="images/walk.jpg" alt="Trainer 12">
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
 
+  <footer>
+    <p>&copy; 2025 eBay (Simplified)</p>
+  </footer>
   <script>
-    // Fade-in effect for images
-    const images = document.querySelectorAll('.gallery-image');
-    window.addEventListener('scroll', () => {
-      images.forEach(image => {
-        const rect = image.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-          image.classList.add('visible');
+    const carouselContainer = document.querySelector('.trending-carousel-container');
+    const carousel = document.querySelector('.trending-carousel');
+    const productItems = document.querySelectorAll('.trending-carousel .product-item');
+    const visibleCount = 5; // Number of items to display
+    let startIndex = 0;
+  
+    function updateCarousel() {
+      // Hide all items initially
+      productItems.forEach((item, index) => {
+        if (index >= startIndex && index < startIndex + visibleCount) {
+          item.style.display = 'block'; // Show the visible items
+        } else {
+          item.style.display = 'none'; // Hide the rest
         }
       });
+    }
+  
+    function rotateNext() {
+      startIndex = (startIndex + 1) % productItems.length;
+      updateCarousel();
+    }
+  
+    // Initial setup
+    updateCarousel();
+  
+    // Automatic rotation
+    let autoRotateInterval = setInterval(rotateNext, 3000); // Rotate every 3 seconds
+  
+    // Optional: Pause on hover
+    carouselContainer.addEventListener('mouseenter', () => {
+      clearInterval(autoRotateInterval);
     });
+  
+    carouselContainer.addEventListener('mouseleave', () => {
+      autoRotateInterval = setInterval(rotateNext, 3000);
+    });
+  
+    // Optional: Basic next button functionality (can be improved)
+    const nextButton = document.querySelector('.carousel-button.next');
+    if (nextButton) {
+      nextButton.addEventListener('click', rotateNext);
+    }
+  
+    // Optional: Basic previous button functionality (can be improved)
+    const prevButton = document.querySelector('.carousel-button.prev');
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        startIndex = (startIndex - 1 + productItems.length) % productItems.length;
+        updateCarousel();
+      });
+    }
   </script>
 </body>
 </html>
