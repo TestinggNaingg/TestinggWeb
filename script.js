@@ -1,7 +1,7 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 const gallery = document.querySelector('.gallery');
-const images = ['1V0A7424.jpg', '1V0A7505.jpg', '1V0A7861.jpg']; // သင့်ရဲ့ ပုံနာမည်တွေကို ဒီ Array ထဲမှာ ပြင်ပါ။
+const images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg' ]; // သင့်ရဲ့ ပုံနာမည်တွေကို ဒီ Array ထဲမှာ ပြင်ပါ။
 
 images.forEach(image => {
     const imgElement = document.createElement('img');
