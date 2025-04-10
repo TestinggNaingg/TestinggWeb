@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Photo Upload</title>
+  <title>Home</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,9 +11,20 @@
     <a href="gallery.html">Gallery</a>
   </nav>
 
-  <h1>Upload Your Photo</h1>
-  <input type="file" id="photoInput" accept="image/*">
+  <h1>Welcome to My Site</h1>
+  <p>This is the home page. Click Gallery to see photos.</p>
 
-  <script src="script.js"></script>
+  <script>
+    // Fade-in effect for images
+    const images = document.querySelectorAll('.gallery-image');
+    window.addEventListener('scroll', () => {
+      images.forEach(image => {
+        const rect = image.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+          image.classList.add('visible');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

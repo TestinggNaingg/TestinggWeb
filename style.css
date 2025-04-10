@@ -1,22 +1,117 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
+    background: #f8f8f8;
     padding: 20px;
-    background-color: #f2f2f2;
-  }
-  
-  nav {
+    margin: 0;
+}
+
+nav {
     margin-bottom: 20px;
-  }
-  
-  nav a {
+}
+nav a {
     margin-right: 15px;
     text-decoration: none;
     color: #333;
-  }
-  
-  .gallery-image {
-    width: 200px;
-    margin: 10px;
-    border-radius: 8px;
-  }
-  
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+/* Responsive Grid */
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* Image Styling */
+.gallery-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox Modal Styling */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-modal img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Carousel with Windows-style Sliding Effect */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.carousel-image {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 400px; /* Uniform size */
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 0.5s ease;;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
+
+.carousel-images {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-image {
+    flex: 0 0 100%;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
