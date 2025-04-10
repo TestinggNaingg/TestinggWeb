@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+
+  <h1>Gallery</h1>
+  <div id="gallery"></div>
+
+  <script>
+    const galleryContainer = document.getElementById('gallery');
+    const images = JSON.parse(localStorage.getItem('uploadedImages')) || [];
+
+    images.forEach(img => {
+      const imageElement = document.createElement('img');
+      imageElement.src = img;
+      imageElement.className = 'gallery-image';
+      galleryContainer.appendChild(imageElement);
+    });
+  </script>
+</body>
+</html>
