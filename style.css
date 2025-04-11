@@ -16,10 +16,70 @@ body {
 	color: rgb(0, 0, 0); /* စာသားအရောင် */
 	text-align: center; /* စာသားကို အလယ်မှာ ထားပါ */
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
+	overflow: hidden; /* waves တွေကို block အတွင်းမှာပဲ ပြပါ */
+  }
+
+  .wave-container {
+	width: 100%;
+	height: 100px;
+	position: absolute; /* absolute position ကို သတ်မှတ်ပါ */
+	bottom: 0; /* အောက်ဆုံးမှာ ထားပါ */
+	overflow: hidden;
+	line-height: 0;
   }
   
+  .wave {
+	position: absolute;
+	width: 200%;
+	height: 100px;
+	background: #fff;
+	border-radius: 100% 50%;
+	opacity: 0.4;
+	animation: animateWave 5s linear infinite;
+	bottom: 0;
+	left: 0;
+  }
+  
+  .wave1 {
+	background-image: url('https://svgshare.com/i/uX_.svg'); /* or your own wave svg */
+	animation: wave1 10s linear infinite;
+	bottom: 0;
+	z-index: 1000;
+  }
+  
+  .wave2 {
+	background-image: url('https://svgshare.com/i/uX_.svg');
+	animation: wave2 15s linear infinite;
+	bottom: 10px;
+	z-index: 999;
+	opacity: 0.5;
+  }
+  
+  .wave3 {
+	background-image: url('https://svgshare.com/i/uX_.svg');
+	animation: wave3 20s linear infinite;
+	bottom: 15px;
+	z-index: 998;
+	opacity: 0.3;
+  }
+
+  @keyframes wave1 {
+	0% { background-position-x: 0; }
+	100% { background-position-x: -1600px; }
+}
+
+@keyframes wave2 {
+	0% { background-position-x: 0; }
+	100% { background-position-x: -1200px; }
+}
+
+@keyframes wave3 {
+	0% { background-position-x: 0; }
+	100% { background-position-x: -800px; }
+}
+
   .text-overlay {
 	position: absolute; /* absolute position ကို သတ်မှတ်ပါ */
 	top: 50%; /* အပေါ်က 50% နေရာမှာ ထားပါ */
