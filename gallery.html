@@ -1,102 +1,183 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Gallery</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-  </nav>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Gallery</title>
+		<link
+			rel="stylesheet"
+			href="style.css"
+		/>
+	</head>
+	<body>
+		<nav>
+			<a href="index.html">Home</a>
+			<a href="gallery.html">Gallery</a>
+		</nav>
 
-  <h1>My Photo Gallery</h1>
+		<h1>My Photo Gallery</h1>
 
-  <!-- Slideshow -->
-  <div id="carousel" class="carousel">
-    <div class="carousel-images">
-      <img src="images/birthday.jpg" alt="photo1" class="carousel-image">
-      <img src="images/coffeeshop.jpg" alt="photo2" class="carousel-image">
-      <img src="images/hotpot.jpg" alt="photo3" class="carousel-image">
-      <img src="images/pagoda.jpg" alt="photo4" class="carousel-image">
-      <img src="images/shesayloveme.jpg" alt="photo5" class="carousel-image">
-      <img src="images/walk.jpg" alt="photo6" class="carousel-image">
-      <img src="images/gotohostpital.jpg" alt="photo7" class="carousel-image">
-      <img src="images/1.jpg" alt="photo8" class="carousel-image">
-      <img src="images/2.jpg" alt="photo9" class="carousel-image">
-      <img src="images/3.jpg" alt="photo10" class="carousel-image">
-      <img src="images/4.jpg" alt="photo11" class="carousel-image">
-      <img src="images/5.jpg" alt="photo12" class="carousel-image">
-      <img src="images/6.jpg" alt="photo13" class="carousel-image">
-    </div>
-  </div>
+		<!-- Slideshow -->
+		<div
+			id="carousel"
+			class="carousel"
+		>
+			<div class="carousel-images">
+				<img
+					src="images/birthday.jpg"
+					alt="photo1"
+					class="carousel-image"
+				/>
+				<img
+					src="images/coffeeshop.jpg"
+					alt="photo2"
+					class="carousel-image"
+				/>
+				<img
+					src="images/hotpot.jpg"
+					alt="photo3"
+					class="carousel-image"
+				/>
+				<img
+					src="images/pagoda.jpg"
+					alt="photo4"
+					class="carousel-image"
+				/>
+				<img
+					src="images/shesayloveme.jpg"
+					alt="photo5"
+					class="carousel-image"
+				/>
+				<img
+					src="images/walk.jpg"
+					alt="photo6"
+					class="carousel-image"
+				/>
+				<img
+					src="images/gotohostpital.jpg"
+					alt="photo7"
+					class="carousel-image"
+				/>
+				<img
+					src="images/1.jpg"
+					alt="photo8"
+					class="carousel-image"
+				/>
+				<img
+					src="images/2.jpg"
+					alt="photo9"
+					class="carousel-image"
+				/>
+				<img
+					src="images/3.jpg"
+					alt="photo10"
+					class="carousel-image"
+				/>
+				<img
+					src="images/4.jpg"
+					alt="photo11"
+					class="carousel-image"
+				/>
+				<img
+					src="images/5.jpg"
+					alt="photo12"
+					class="carousel-image"
+				/>
+				<img
+					src="images/6.jpg"
+					alt="photo13"
+					class="carousel-image"
+				/>
+			</div>
+		</div>
 
-  <!-- Gallery Grid Container -->
-  <div id="gallery" class="grid-gallery"></div>
+		<!-- Gallery Grid -->
+		<div
+			id="gallery"
+			class="grid-gallery"
+		></div>
 
-  <!-- Lightbox Modal -->
-  <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox(event)">
-    <span class="close-btn" onclick="closeLightbox(event)">×</span>
-    <img id="lightbox-image" src="" alt="Expanded view">
-  </div>
+		<!-- Lightbox Modal -->
+		<div
+			id="lightbox-modal"
+			class="lightbox-modal"
+			onclick="closeLightbox(event)"
+		>
+			<span
+				class="close-btn"
+				onclick="closeLightbox(event)"
+				>×</span
+			>
+			<img
+				id="lightbox-image"
+				src=""
+				alt="Expanded view"
+			/>
+		</div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      let currentIndex = 0;
-      const images = document.querySelectorAll('.carousel-image');
-      const totalImages = images.length;
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				let currentIndex = 0;
+				const carouselImages = document.querySelector('.carousel-images');
+				const totalImages = document.querySelectorAll('.carousel-image').length;
 
-      function nextSlide() {
-  const carouselImages = document.querySelector('.carousel-images');
-  carouselImages.style.transition = 'transform 0.5s ease, opacity 0.5s ease';  // Add opacity transition
-  currentIndex = (currentIndex + 1) % totalImages;
-  carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+				function nextSlide() {
+					currentIndex = (currentIndex + 1) % totalImages;
+					carouselImages.style.transform = `translateX(-${
+						currentIndex * 100
+					}%)`;
+				}
 
-  images.forEach((image, index) => {
-    image.classList.remove('active');
-    image.style.opacity = 0;  // Hide all images initially
-    if (index === currentIndex) {
-      image.classList.add('active');
-      image.style.opacity = 1;  // Show the current image
-    }
-  });
-}
+				setInterval(nextSlide, 3000);
 
+				const imageList = [
+					'birthday.jpg',
+					'coffeeshop.jpg',
+					'hotpot.jpg',
+					'pagoda.jpg',
+					'shesayloveme.jpg',
+					'walk.jpg',
+					'gotohostpital.jpg',
+					'1.jpg',
+					'2.jpg',
+					'3.jpg',
+					'4.jpg',
+					'5.jpg',
+					'6.jpg',
+				];
 
-      setInterval(nextSlide, 3000);
+				const gallery = document.getElementById('gallery');
 
-      const imageList = ['birthday.jpg', 'coffeeshop.jpg', 'hotpot.jpg', 'pagoda.jpg', 'shesayloveme.jpg', 'walk.jpg', 'gotohostpital.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'];
-      const gallery = document.getElementById('gallery');
+				imageList.forEach((filename) => {
+					const img = document.createElement('img');
+					img.src = `images/${filename}`;
+					img.alt = filename;
+					img.className = 'gallery-image';
+					img.setAttribute('loading', 'lazy');
+					img.onclick = function () {
+						openLightbox(`images/${filename}`);
+					};
+					gallery.appendChild(img);
+				});
 
-      imageList.forEach(filename => {
-        const img = document.createElement('img');
-        img.src = `images/${filename}`;
-        img.alt = filename;
-        img.className = 'gallery-image';
-        img.setAttribute('loading', 'lazy');
-        img.onclick = function () { openLightbox(`images/${filename}`); };
-        gallery.appendChild(img);
-      });
+				function openLightbox(imageSrc) {
+					const lightboxModal = document.getElementById('lightbox-modal');
+					const lightboxImage = document.getElementById('lightbox-image');
+					lightboxImage.src = imageSrc;
+					lightboxModal.style.display = 'flex';
+				}
 
-      function openLightbox(imageSrc) {
-        const lightboxModal = document.getElementById('lightbox-modal');
-        const lightboxImage = document.getElementById('lightbox-image');
-        lightboxImage.src = imageSrc;
-        lightboxModal.style.display = 'flex';
-      }
+				function closeLightbox(event) {
+					if (
+						event.target === event.currentTarget ||
+						event.target.classList.contains('close-btn')
+					) {
+						document.getElementById('lightbox-modal').style.display = 'none';
+					}
+				}
 
-      function closeLightbox(event) {
-        if (event.target === event.currentTarget) {
-          const lightboxModal = document.getElementById('lightbox-modal');
-          lightboxModal.style.display = 'none';
-        }
-      }
-
-      window.openLightbox = openLightbox;
-      window.closeLightbox = closeLightbox;
-    });
-  </script>
-
-</body>
+				window.openLightbox = openLightbox;
+				window.closeLightbox = closeLightbox;
+			});
+		</script>
+	</body>
 </html>
