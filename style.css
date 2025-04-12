@@ -1,97 +1,91 @@
 body {
 	font-family: sans-serif;
-	background: #f8f8f8;
-	padding: 20px;
 	margin: 0;
 	background-color: #ffe4e1;
 }
 
 .homepage-main-block {
-	background-image: url('images/1111.jpg'); /* ပုံရဲ့ path ကို ထည့်ပါ */
-	background-size: cover; /* ပုံကို နေရာနဲ့ အံဝင်ခိုင်းပါ */
-	background-position: center; /* ပုံကို အလယ်မှာ ထားပါ */
-	background-repeat: no-repeat; /* ပုံကို ထပ်မပြပါ */
-	height: 300px; /* block ရဲ့ အမြင့်ကို သတ်မှတ်ပါ */
-	position: relative; /* relative position ကို သတ်မှတ်ပါ */
-	color: rgb(0, 0, 0); /* စာသားအရောင် */
-	text-align: center; /* စာသားကို အလယ်မှာ ထားပါ */
+	background-image: url('images/1111.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 400px;
+	position: relative;
+	color: rgb(0, 0, 0);
+	text-align: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	overflow: hidden; /* waves တွေကို block အတွင်းမှာပဲ ပြပါ */
-  }
-
-  .wave-container {
-	width: 100%;
-	height: 100px;
-	position: absolute; /* absolute position ကို သတ်မှတ်ပါ */
-	bottom: 0; /* အောက်ဆုံးမှာ ထားပါ */
 	overflow: hidden;
-	line-height: 0;
+	flex-direction: column;
+  }
+  /* Wave animation */
+  .wave-container {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 120px;
+	overflow: hidden;
+	z-index: 1;
+	pointer-events: none;
   }
   
   .wave {
 	position: absolute;
+	bottom: 0;
 	width: 200%;
 	height: 100px;
-	background: #fff;
-	border-radius: 100% 50%;
-	opacity: 0.4;
-	animation: animateWave 5s linear infinite;
-	bottom: 0;
-	left: 0;
+	background: url('images/wave-svgrepo-com.svg') repeat-x;
+	background-size: cover;
+	animation: waveMove 8s linear infinite;
   }
   
   .wave1 {
-	background-image: url('https://svgshare.com/i/uX_.svg'); /* or your own wave svg */
-	animation: wave1 10s linear infinite;
-	bottom: 0;
-	z-index: 1000;
+	z-index: 3;
+	opacity: 1;
+	animation-delay: 0s;
   }
   
   .wave2 {
-	background-image: url('https://svgshare.com/i/uX_.svg');
-	animation: wave2 15s linear infinite;
-	bottom: 10px;
-	z-index: 999;
+	z-index: 2;
 	opacity: 0.5;
+	animation-delay: -4s;
+	transform: translateY(10px);
   }
   
   .wave3 {
-	background-image: url('https://svgshare.com/i/uX_.svg');
-	animation: wave3 20s linear infinite;
-	bottom: 15px;
-	z-index: 998;
+	z-index: 1;
 	opacity: 0.3;
+	animation-delay: -2s;
+	transform: translateY(20px);
   }
-
-  @keyframes wave1 {
-	0% { background-position-x: 0; }
-	100% { background-position-x: -1600px; }
-}
-
-@keyframes wave2 {
-	0% { background-position-x: 0; }
-	100% { background-position-x: -1200px; }
-}
-
-@keyframes wave3 {
-	0% { background-position-x: 0; }
-	100% { background-position-x: -800px; }
-}
-
+  
+  @keyframes waveMove {
+	0% {
+	  transform: translateX(0);
+	}
+	100% {
+	  transform: translateX(-50%);
+	}
+  }
+  
   .text-overlay {
-	position: absolute; /* absolute position ကို သတ်မှတ်ပါ */
-	top: 50%; /* အပေါ်က 50% နေရာမှာ ထားပါ */
-	left: 50%; /* ဘယ်ဘက်က 50% နေရာမှာ ထားပါ */
-	transform: translate(-50%, -50%); /* အလယ်မှာ ထားပါ */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 5;
+	color: #000;
+	text-align: center;
+	max-width: 90%;
   }
   
   .text-overlay h2 {
-	font-size: 24px; /* စာလုံးအရွယ်အစား */
-	/* အခြား စာသားစတိုင်လ်များ */
+	font-size: 26px;
   }
   
+
   /* ကျန်တဲ့ CSS စတိုင်လ်များ */
 .image-container {
 	width: 300px; /* ပုံရဲ့ အကျယ်ကို သတ်မှတ်ပါ */
